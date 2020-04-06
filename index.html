@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Enbro Soho API</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -196,308 +196,1153 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen-a1ce949a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-c275c2f6.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;json&quot;,&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/logo-061e572b.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="json">JSON</a>
+              <a href="#" data-language-name="shell">cURL</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#customer-create" class="toc-h1 toc-link" data-title="Customer create">Customer create</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#failure" class="toc-h2 toc-link" data-title="Failure">Failure</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#success" class="toc-h2 toc-link" data-title="Success">Success</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#customer-list" class="toc-h1 toc-link" data-title="Customer list">Customer list</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#success-2" class="toc-h2 toc-link" data-title="Success">Success</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#customer-show" class="toc-h1 toc-link" data-title="Customer show">Customer show</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#failure-2" class="toc-h2 toc-link" data-title="Failure">Failure</a>
+                  </li>
+                  <li>
+                    <a href="#success-3" class="toc-h2 toc-link" data-title="Success">Success</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#customers-eans" class="toc-h1 toc-link" data-title="Customers / Eans">Customers / Eans</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-eans-gt-failure" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; failure">CREATE /eans -&gt; failure</a>
+                  </li>
+                  <li>
+                    <a href="#create-eans-gt-failure-2" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; failure">CREATE /eans -&gt; failure</a>
+                  </li>
+                  <li>
+                    <a href="#create-eans-gt-failure-3" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; failure">CREATE /eans -&gt; failure</a>
+                  </li>
+                  <li>
+                    <a href="#create-eans-gt-failure-4" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; failure">CREATE /eans -&gt; failure</a>
+                  </li>
+                  <li>
+                    <a href="#create-eans-gt-success" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; success">CREATE /eans -&gt; success</a>
+                  </li>
+                  <li>
+                    <a href="#create-eans-gt-success-2" class="toc-h2 toc-link" data-title="CREATE /eans -&gt; success">CREATE /eans -&gt; success</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#eans-list" class="toc-h1 toc-link" data-title="Eans list">Eans list</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#success-4" class="toc-h2 toc-link" data-title="Success">Success</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#me" class="toc-h1 toc-link" data-title="Me">Me</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#failure-3" class="toc-h2 toc-link" data-title="Failure">Failure</a>
+                  </li>
+                  <li>
+                    <a href="#success-5" class="toc-h2 toc-link" data-title="Success">Success</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ping" class="toc-h1 toc-link" data-title="Ping">Ping</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#success-6" class="toc-h2 toc-link" data-title="Success">Success</a>
+                  </li>
+              </ul>
           </li>
       </ul>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+        <h1 id='customer-create'>Customer create</h1><h2 id='failure'>Failure</h2>
+<p>Returning status 422 when email already exist</p>
+<h3 id='request'>Request</h3><h4 id='endpoint'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers
+Content-Type: application/json
+Authorization: Bearer 892ff6b11daa4737d19fe4bc08c27b6c
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<p><code>POST /api/v1/customers</code></p>
+<h4 id='parameters'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clifford@mohr.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terms_and_conditions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"privacy_policy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"registered_from_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"98.99.253.30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danny"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ocean"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32(0)56/98.01.44"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-04-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South Seanview"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"678 Daugherty Corner"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71950"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15005"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">customer[email] <em>required</em></td>
+<td style="text-align: left">Customer email</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[terms_and_conditions] <em>required</em></td>
+<td style="text-align: left">Customer terms and conditions</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[privacy_policy] <em>required</em></td>
+<td style="text-align: left">Customer privacy policy</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[registered_from_ip] <em>required</em></td>
+<td style="text-align: left">Customer registered from ip</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile] <em>required</em></td>
+<td style="text-align: left">Customer profile</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][first_name] <em>required</em></td>
+<td style="text-align: left">Customer profile first name</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][last_name] <em>required</em></td>
+<td style="text-align: left">Customer profile last name</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][title] <em>required</em></td>
+<td style="text-align: left">Customer profile title</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][phone] <em>required</em></td>
+<td style="text-align: left">Customer profile phone</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][birth_date] <em>required</em></td>
+<td style="text-align: left">Customer profile birth date</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][city] <em>required</em></td>
+<td style="text-align: left">Customer profile city</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][street] <em>required</em></td>
+<td style="text-align: left">Customer profile street</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][building] <em>required</em></td>
+<td style="text-align: left">Customer profile building</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][building_addon]</td>
+<td style="text-align: left">Customer profile building addon</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][postal_code] <em>required</em></td>
+<td style="text-align: left">Customer profile postal code</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][language]</td>
+<td style="text-align: left">Values: [&quot;nl&quot;, &quot;fr&quot;, &quot;en&quot;]. Default: nl</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed_email_has_already_been_taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"it is already registered"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer.email"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='success'>Success</h2>
+<p>Returning status 200 and Customer hash</p>
+<h3 id='request-2'>Request</h3><h4 id='endpoint-2'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers
+Content-Type: application/json
+Authorization: Bearer b15635ceb5c3e82e46826b17aff3d637
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+<p><code>POST /api/v1/customers</code></p>
+<h4 id='parameters-2'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nathalie@abernathy.co"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"terms_and_conditions"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"privacy_policy"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"registered_from_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"108.254.248.163"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danny"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ocean"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+32(0)56/98.01.44"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-04-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Mohammedfort"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8132 Kindra Islands"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14346"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68658-3184"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">customer[email] <em>required</em></td>
+<td style="text-align: left">Customer email</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[terms_and_conditions] <em>required</em></td>
+<td style="text-align: left">Customer terms and conditions</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[privacy_policy] <em>required</em></td>
+<td style="text-align: left">Customer privacy policy</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[registered_from_ip] <em>required</em></td>
+<td style="text-align: left">Customer registered from ip</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile] <em>required</em></td>
+<td style="text-align: left">Customer profile</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][first_name] <em>required</em></td>
+<td style="text-align: left">Customer profile first name</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][last_name] <em>required</em></td>
+<td style="text-align: left">Customer profile last name</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][title] <em>required</em></td>
+<td style="text-align: left">Customer profile title</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][phone] <em>required</em></td>
+<td style="text-align: left">Customer profile phone</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][birth_date] <em>required</em></td>
+<td style="text-align: left">Customer profile birth date</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][city] <em>required</em></td>
+<td style="text-align: left">Customer profile city</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][street] <em>required</em></td>
+<td style="text-align: left">Customer profile street</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][building] <em>required</em></td>
+<td style="text-align: left">Customer profile building</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][building_addon]</td>
+<td style="text-align: left">Customer profile building addon</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][postal_code] <em>required</em></td>
+<td style="text-align: left">Customer profile postal code</td>
+</tr>
+<tr>
+<td style="text-align: left">customer[profile][language]</td>
+<td style="text-align: left">Values: [&quot;nl&quot;, &quot;fr&quot;, &quot;en&quot;]. Default: nl</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nathalie@abernathy.co"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.409Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.428Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Danny"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ocean"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2000-04-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3256980144"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"East Mohammedfort"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8132 Kindra Islands"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14346"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68658-3184"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.411Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.411Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='customer-list'>Customer list</h1><h2 id='success-2'>Success</h2>
+<p>Returning status 200 and array of customers</p>
+<h3 id='request-3'>Request</h3><h4 id='endpoint-3'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/customers?page=1&amp;amp;per=5
+Content-Type: application/json
+Authorization: Bearer 9aa0d3fb5829cf9e4c35224d23d16877
+</code></pre>
+<p><code>GET /api/v1/customers</code></p>
+<h4 id='parameters-3'>Parameters</h4><pre class="highlight json tab-json"><code><span class="err">page</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="err">per</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">page</td>
+<td style="text-align: left">page</td>
+</tr>
+<tr>
+<td style="text-align: left">per</td>
+<td style="text-align: left">Limit of records per page. Max value is 25.</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"current_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"limit_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prev_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"records"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gale@rodriguez.name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.497Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.497Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roman"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferry"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1968-12-23"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3232411132"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Franklyntown"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Johns Route"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3401"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 921"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"88052"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.501Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.501Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"diedre_towne@langcarroll.name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.507Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.507Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Santos"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bosco"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1971-02-01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3256980144"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"West Brian"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kohler Underpass"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55547"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apt. 633"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67775"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.511Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.511Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shad_johnston@schroeder.io"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.516Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.516Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dexter"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1977-09-21"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3256980144"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rachealfurt"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wade Street"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"46009"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 779"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04975"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.519Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.519Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"laurice_boehm@lockman.co"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.524Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.524Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tracy"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Becker"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1986-07-23"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3232411132"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"West Lewis"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rich Stream"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"68499"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 853"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71874"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.527Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.527Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"marvin.prohaska@wisozkdach.io"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.531Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.531Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yael"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Barton"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1978-02-08"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3232411132"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Michalfort"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Krajcik Rapid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36435"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 906"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"91771"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.534Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.534Z"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='customer-show'>Customer show</h1><h2 id='failure-2'>Failure</h2>
+<p>Returning status 404 where the customer is missing</p>
+<h3 id='request-4'>Request</h3><h4 id='endpoint-4'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/customers/116
+Content-Type: application/json
+Authorization: Bearer 1c9696c9aaddc76d629e9f070919338d
+</code></pre>
+<p><code>GET /api/v1/customers/:id</code></p>
+<h4 id='parameters-4'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id <em>required</em></td>
+<td style="text-align: left">id</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+404 Not Found
+</code></pre><pre class="highlight json tab-json"><code><span class="s2">"Not found"</span><span class="w">
+</span></code></pre><h2 id='success-3'>Success</h2>
+<p>Returning status 200 and Customer hash</p>
+<h3 id='request-5'>Request</h3><h4 id='endpoint-5'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/customers/110
+Content-Type: application/json
+Authorization: Bearer 0d1a6bfd67a8247dc1d4a061fad2da9b
+</code></pre>
+<p><code>GET /api/v1/customers/:id</code></p>
+<h4 id='parameters-5'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">id <em>required</em></td>
+<td style="text-align: left">id</td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jewell.feeney@tillman.io"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.705Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.705Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organisation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jeneva"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Crist"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birth_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1967-12-11"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+3256980144"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"West Laurinda"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Faustino Parkway"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6781"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 730"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55302"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.714Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.714Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='customers-eans'>Customers / Eans</h1>
+<p>All requests namespaced under /api/v1</p>
+<h2 id='create-eans-gt-failure'>CREATE /eans -&gt; failure</h2>
+<p>when another customer already has EAN with same number</p>
+<h3 id='request-6'>Request</h3><h4 id='endpoint-6'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/2/eans
+Content-Type: application/json
+Authorization: Bearer d9f7b2f9dda0fccbfcb20dcd576e719b
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans</code></p>
+<h4 id='parameters-6'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ean <em>required</em></td>
+<td style="text-align: left">ean</td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-eans-gt-failure-2'>CREATE /eans -&gt; failure</h2>
+<p>When a customer has already an EAN with the same number</p>
+<h3 id='request-7'>Request</h3><h4 id='endpoint-7'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/4/eans
+Content-Type: application/json
+Authorization: Bearer aba214cc23035e716072ab7a4c340085
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans</code></p>
+<h4 id='parameters-7'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ean <em>required</em></td>
+<td style="text-align: left">ean</td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_added_to_customer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been added to customer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-eans-gt-failure-3'>CREATE /eans -&gt; failure</h2>
+<p>when another customer already has EAN with same number</p>
+<h3 id='request-8'>Request</h3><h4 id='endpoint-8'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/117/eans/bulk
+Content-Type: application/json
+Authorization: Bearer d80eb98d5133143a9bf1280131e2d35e
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans/bulk</code></p>
+<h4 id='parameters-8'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"eans"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">eans <em>required</em></td>
+<td style="text-align: left">eans</td>
+</tr>
+</tbody></table>
+<h3 id='response-8'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-eans-gt-failure-4'>CREATE /eans -&gt; failure</h2>
+<p>When a customer has already an EAN with the same number</p>
+<h3 id='request-9'>Request</h3><h4 id='endpoint-9'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/119/eans/bulk
+Content-Type: application/json
+Authorization: Bearer 05a9498bd4a9833f8a00a78039304c84
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans/bulk</code></p>
+<h4 id='parameters-9'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"eans"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">eans <em>required</em></td>
+<td style="text-align: left">eans</td>
+</tr>
+</tbody></table>
+<h3 id='response-9'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_added_to_customer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been added to customer"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has_already_been_taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"has already been taken"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ean.number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"params"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-eans-gt-success'>CREATE /eans -&gt; success</h2>
+<p>Create EAN batch</p>
+<h3 id='request-10'>Request</h3><h4 id='endpoint-10'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/1/eans
+Content-Type: application/json
+Authorization: Bearer 5a6628f340ed98796f38454f873c487a
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans</code></p>
+<h4 id='parameters-10'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ean <em>required</em></td>
+<td style="text-align: left">ean</td>
+</tr>
+</tbody></table>
+<h3 id='response-10'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="mi">315</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:31.928Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:31.918Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beer LLC 1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='create-eans-gt-success-2'>CREATE /eans -&gt; success</h2>
+<p>Create EAN batch</p>
+<h3 id='request-11'>Request</h3><h4 id='endpoint-11'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>POST /api/v1/customers/116/eans/bulk
+Content-Type: application/json
+Authorization: Bearer a9f8aa5b50593a50d2fc06cfdc4aa1c6
+</code></pre>
+<p><code>POST /api/v1/customers/:customer_id/eans/bulk</code></p>
+<h4 id='parameters-11'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"eans"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"ean"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: left">Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">eans <em>required</em></td>
+<td style="text-align: left">eans</td>
+</tr>
+</tbody></table>
+<h3 id='response-11'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+201 Created
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"542170967180397340"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kiev"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"consumptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="s2">"22.25"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.15"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2443"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"street name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mono"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"february"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="mi">315</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00341"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0214"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.989Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:33.986Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-06"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ernser-Stark 7"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span></code></pre><h1 id='eans-list'>Eans list</h1>
+<p>All requests namespaced under /api/v1</p>
+<h2 id='success-4'>Success</h2>
+<p>Returns status 200 and array of the customer&#39;s eans</p>
+<h3 id='request-12'>Request</h3><h4 id='endpoint-12'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/customers/5/eans
+Content-Type: application/json
+Authorization: Bearer 9a9b82be7358a72368090497d7704081
 </code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<p><code>GET /api/v1/customers/:customer_id/eans</code></p>
+<h4 id='parameters-12'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<p>None known.</p>
+<h3 id='response-12'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"545163640862149376"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"666"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 966"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"South Nelleview"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"69057"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reichel Grove"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dualExclusive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"automatic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="mi">689</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00425"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0215"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.205Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.204Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kunze-Bayer 6"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"544001561091240792"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"electricity"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78915"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"building_addon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Suite 516"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jacobiborough"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fixed_fee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84288-7210"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reason"</span><span class="p">:</span><span class="w"> </span><span class="s2">"normal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ready"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paucek Mall"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tariff_group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dualExclusive"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recording_period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"january"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"respect_contract_end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"solar_panels"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inverter_max_power"</span><span class="p">:</span><span class="w"> </span><span class="mi">1431</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"wkk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00425"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gsc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0215"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.210Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.210Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"supplier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kunze-Bayer 6"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h1 id='me'>Me</h1><h2 id='failure-3'>Failure</h2>
+<p>Returning status 401 when token wrong</p>
+<h3 id='request-13'>Request</h3><h4 id='endpoint-13'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/me
+Content-Type: application/json
+Authorization: wrong_token
+</code></pre>
+<p><code>GET /api/v1/me</code></p>
+<h4 id='parameters-13'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<p>None known.</p>
+<h3 id='response-13'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+401 Unauthorized
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not_authenticated"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not authenticated"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"request"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"payload"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='success-5'>Success</h2>
+<p>Returning status 200</p>
+<h3 id='request-14'>Request</h3><h4 id='endpoint-14'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/me
+Content-Type: application/json
+Authorization: Bearer 3cab51c68bcddf6f2a18d9df159c38c1
+</code></pre>
+<p><code>GET /api/v1/me</code></p>
+<h4 id='parameters-14'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<p>None known.</p>
+<h3 id='response-14'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pouros Group"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quitzonrau-kiehn-7"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-04-06T08:43:32.293Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='ping'>Ping</h1><h2 id='success-6'>Success</h2>
+<p>Returning status 200</p>
+<h3 id='request-15'>Request</h3><h4 id='endpoint-15'>Endpoint</h4><pre class="highlight plaintext tab-plaintext"><code>GET /api/v1/ping
+Content-Type: application/json
+</code></pre>
+<p><code>GET /api/v1/ping</code></p>
+<h4 id='parameters-15'>Parameters</h4><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="p">}:</span><span class="w"> 
+</span></code></pre>
+<p>None known.</p>
+<h3 id='response-15'>Response</h3><pre class="highlight plaintext tab-plaintext"><code>Content-Type: application/json; charset=utf-8
+200 OK
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
-
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="json">JSON</a>
+                <a href="#" data-language-name="shell">cURL</a>
           </div>
       </div>
     </div>
