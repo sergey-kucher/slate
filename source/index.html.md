@@ -1,18 +1,38 @@
 ---
-title: Enbro Soho API
+title: Enbro Soho HTTP API
 language_tabs:
   - json: JSON
   - shell: cURL
 ---
 
+Enbro Soho HTTP API.
 
-# Customer create
+The enbro soho system can find new gas and electricity offers for a customer if it has all the necessary data.
+Therefore the API allows you to create customers and provide all the necessary data for them,
+including data of their EAN records.
+
+According to customer records you can:
+
+- Create new customers for your organisation through the API.
+  The created customers are treated by the system the same way
+  as the customers who registered using enbro soho registration forms.
+- Get a list of the customers that have been created for the organisation.
+- Get attributes of a customer by his ID.
+
+When you have an ID of a customer, you can use it to create EAN records for him.
+
+# Customers
+
+    Allows to manage list of customers of the current organisation.
+    Current organisation defined based on a provided API token.
+    You can provide an API token using `Authorization` request header.
+
+    For example: `Authorization: Bearer 2453797fc41e0cfa5c7a00f5acfd6915`
 
 
+## CREATE 201 Created
 
-## Failure
-
-Returning status 422 when email already exist
+Creates a customer for the current organisation and returns it's attributes
 
 ### Request
 
@@ -21,7 +41,7 @@ Returning status 422 when email already exist
 ```plaintext
 POST /api/v1/customers
 Content-Type: application/json
-Authorization: Bearer 892ff6b11daa4737d19fe4bc08c27b6c
+Authorization: Bearer f4a0a5e6904602309cc51377d03f7f48
 ```
 
 `POST /api/v1/customers`
@@ -32,20 +52,21 @@ Authorization: Bearer 892ff6b11daa4737d19fe4bc08c27b6c
 ```json
 {
   "customer": {
-    "email": "clifford@mohr.com",
+    "email": "misty_hansen@west.name",
     "terms_and_conditions": true,
     "privacy_policy": true,
-    "registered_from_ip": "98.99.253.30",
+    "registered_from_ip": "44.132.61.13",
     "profile": {
       "first_name": "Danny",
       "last_name": "Ocean",
       "title": "mr",
-      "phone": "+32(0)56/98.01.44",
-      "birth_date": "2000-04-06",
-      "city": "South Seanview",
-      "street": "678 Daugherty Corner",
-      "building": "71950",
-      "postal_code": "15005",
+      "phone": "+3256980144",
+      "birth_date": "2000-04-07",
+      "city": "Huelborough",
+      "street": "10109 Rodriguez Mountains",
+      "building": "8962",
+      "building_addon": "Suite 316",
+      "postal_code": "84783",
       "language": "en"
     }
   }
@@ -55,22 +76,161 @@ Authorization: Bearer 892ff6b11daa4737d19fe4bc08c27b6c
 
 | Name | Description |
 |:-----|:------------|
-| customer[email] *required* | Customer email |
-| customer[terms_and_conditions] *required* | Customer terms and conditions |
-| customer[privacy_policy] *required* | Customer privacy policy |
+| customer[email] *required* | A customer's email. Serves as an unique identifier of a customer. A customer with the same email must be not registered before. |
+| customer[terms_and_conditions] *required* | Type: *boolean*. Flag that terms and conditions is accepted |
+| customer[privacy_policy] *required* | Type: *boolean*. Flag that the privacy policy is accepted |
 | customer[registered_from_ip] *required* | Customer registered from ip |
-| customer[profile] *required* | Customer profile |
+| customer[profile] *required* | Attributes for the profile of a customer |
 | customer[profile][first_name] *required* | Customer profile first name |
 | customer[profile][last_name] *required* | Customer profile last name |
-| customer[profile][title] *required* | Customer profile title |
-| customer[profile][phone] *required* | Customer profile phone |
-| customer[profile][birth_date] *required* | Customer profile birth date |
+| customer[profile][title] *required* | Values: ["mr", "mrs"]. Example: "mr". Customer profile title |
+| customer[profile][phone] *required* | Example: "+3256980144". Customer profile phone |
+| customer[profile][birth_date] *required* | Example: "2000-04-06". Customer profile birth date |
 | customer[profile][city] *required* | Customer profile city |
 | customer[profile][street] *required* | Customer profile street |
 | customer[profile][building] *required* | Customer profile building |
 | customer[profile][building_addon]  | Customer profile building addon |
 | customer[profile][postal_code] *required* | Customer profile postal code |
-| customer[profile][language]  | Values: ["nl", "fr", "en"]. Default: nl |
+| customer[profile][language]  | Values: ["nl", "fr", "en"]. Default: "nl". Customer profile language |
+
+
+
+### Response
+
+```plaintext
+Content-Type: application/json; charset=utf-8
+201 Created
+```
+
+
+```json
+{
+  "id": 9,
+  "email": "misty_hansen@west.name",
+  "created_at": "2020-04-07T13:51:11.880Z",
+  "updated_at": "2020-04-07T13:51:11.948Z",
+  "organisation": {
+    "id": 10,
+    "name": "Cronin, Cremin and Gutmann",
+    "domain": "uptonwitting-pagacrutherford-8",
+    "created_at": "2020-04-07T13:51:11.806Z"
+  },
+  "profile": {
+    "id": 8,
+    "customer_id": 9,
+    "title": "mr",
+    "first_name": "Danny",
+    "last_name": "Ocean",
+    "birth_date": "2000-04-07",
+    "phone": "+3256980144",
+    "city": "Huelborough",
+    "street": "10109 Rodriguez Mountains",
+    "building": "8962",
+    "building_addon": "Suite 316",
+    "postal_code": "84783",
+    "language": "en",
+    "created_at": "2020-04-07T13:51:11.883Z",
+    "updated_at": "2020-04-07T13:51:11.883Z"
+  }
+}
+```
+
+
+
+#### Fields
+
+| Name       | Description         |
+|:-----------|:--------------------|
+| id | ID of the customer |
+| email | Unique email of the customer |
+| organisation | Attributes of the organisation to which the customer belongs to |
+| organisation[id] | ID of the customer's organisation |
+| organisation[name] | Name of the organisation |
+| organisation[domain] | Domain of the organisation. Usually it's a subdomain under the parent organisation's domain |
+| organisation[created_at] | Date and time when the organisation has been created |
+| profile[id] | ID of the customer's profile |
+| profile[customer_id] | ID of the customer to whom the profile belongs to |
+| profile[title] | Values: ["mr", "mrs"]. Example: "mr". Customer profile title |
+| profile[first_name] | The customer's first name |
+| profile[last_name] | The customer's last name |
+| profile[birth_date] | The customer's birth date |
+| profile[phone] | Example: "+32460123456". The phone number (full format - only country code with digits) |
+| profile[city] | The customer's address - city |
+| profile[street] | The customer's address - street |
+| profile[building] | The customer's address - building |
+| profile[building_addon] | The customer's address - buildin addon |
+| profile[postal_code] | The customer's address - zip code |
+| profile[language] | Values: ["nl", "fr", "en"]. Customer profile language |
+| profile[created_at] | Date and time when the customer profile has been created |
+| profile[updated_at] | Date and time when the customer profile has been updated |
+
+
+## CREATE 422 Validation Error
+
+          At least one of the specified parameters contains an error.
+          Check if all the required parameters have been specified.
+          Also specified email must be unique.
+          You can find details about the error in the response.
+
+
+### Request
+
+#### Endpoint
+
+```plaintext
+POST /api/v1/customers
+Content-Type: application/json
+Authorization: Bearer 4e9679ea36d4d88c264e7747e4e43aa5
+```
+
+`POST /api/v1/customers`
+
+#### Parameters
+
+
+```json
+{
+  "customer": {
+    "email": "lynn_cartwright@boehm.org",
+    "terms_and_conditions": true,
+    "privacy_policy": true,
+    "registered_from_ip": "231.177.1.50",
+    "profile": {
+      "first_name": null,
+      "last_name": "Ocean",
+      "title": "mr",
+      "phone": "+3256980144",
+      "birth_date": "2000-04-07",
+      "city": "Port Wallymouth",
+      "street": "666 Alla Squares",
+      "building": "649",
+      "building_addon": "Suite 994",
+      "postal_code": "21339-6250",
+      "language": "en"
+    }
+  }
+}
+```
+
+
+| Name | Description |
+|:-----|:------------|
+| customer[email] *required* | A customer's email. Serves as an unique identifier of a customer. A customer with the same email must be not registered before. |
+| customer[terms_and_conditions] *required* | Type: *boolean*. Flag that terms and conditions is accepted |
+| customer[privacy_policy] *required* | Type: *boolean*. Flag that the privacy policy is accepted |
+| customer[registered_from_ip] *required* | Customer registered from ip |
+| customer[profile] *required* | Attributes for the profile of a customer |
+| customer[profile][first_name] *required* | Customer profile first name |
+| customer[profile][last_name] *required* | Customer profile last name |
+| customer[profile][title] *required* | Values: ["mr", "mrs"]. Example: "mr". Customer profile title |
+| customer[profile][phone] *required* | Example: "+3256980144". Customer profile phone |
+| customer[profile][birth_date] *required* | Example: "2000-04-06". Customer profile birth date |
+| customer[profile][city] *required* | Customer profile city |
+| customer[profile][street] *required* | Customer profile street |
+| customer[profile][building] *required* | Customer profile building |
+| customer[profile][building_addon]  | Customer profile building addon |
+| customer[profile][postal_code] *required* | Customer profile postal code |
+| customer[profile][language]  | Values: ["nl", "fr", "en"]. Default: "nl". Customer profile language |
 
 
 
@@ -86,10 +246,10 @@ Content-Type: application/json; charset=utf-8
 {
   "errors": [
     {
-      "error": "confirmed_email_has_already_been_taken",
-      "message": "it is already registered",
-      "path": "customer.email",
-      "type": "custom"
+      "path": "customer.profile.first_name",
+      "error": "must_be_filled",
+      "message": "must be filled",
+      "type": "params"
     }
   ]
 }
@@ -97,122 +257,31 @@ Content-Type: application/json; charset=utf-8
 
 
 
-## Success
+#### Fields
 
-Returning status 200 and Customer hash
+| Name       | Description         |
+|:-----------|:--------------------|
+| errors | Type: *array*. Items type: *object*. Contains a list of occurred errors |
+| path | A full name of an erroneous field |
+| error | A string identifier of the error |
+| message | An error message |
+| type | A type of the error |
+
+
+## LIST 200 OK
+
+Returns customers of the current organisation.
+Current organisation defined based on provided API token.
+
 
 ### Request
 
 #### Endpoint
 
 ```plaintext
-POST /api/v1/customers
+GET /api/v1/customers?page=1&amp;per=2
 Content-Type: application/json
-Authorization: Bearer b15635ceb5c3e82e46826b17aff3d637
-```
-
-`POST /api/v1/customers`
-
-#### Parameters
-
-
-```json
-{
-  "customer": {
-    "email": "nathalie@abernathy.co",
-    "terms_and_conditions": true,
-    "privacy_policy": true,
-    "registered_from_ip": "108.254.248.163",
-    "profile": {
-      "first_name": "Danny",
-      "last_name": "Ocean",
-      "title": "mr",
-      "phone": "+32(0)56/98.01.44",
-      "birth_date": "2000-04-06",
-      "city": "East Mohammedfort",
-      "street": "8132 Kindra Islands",
-      "building": "14346",
-      "postal_code": "68658-3184",
-      "language": "fr"
-    }
-  }
-}
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| customer[email] *required* | Customer email |
-| customer[terms_and_conditions] *required* | Customer terms and conditions |
-| customer[privacy_policy] *required* | Customer privacy policy |
-| customer[registered_from_ip] *required* | Customer registered from ip |
-| customer[profile] *required* | Customer profile |
-| customer[profile][first_name] *required* | Customer profile first name |
-| customer[profile][last_name] *required* | Customer profile last name |
-| customer[profile][title] *required* | Customer profile title |
-| customer[profile][phone] *required* | Customer profile phone |
-| customer[profile][birth_date] *required* | Customer profile birth date |
-| customer[profile][city] *required* | Customer profile city |
-| customer[profile][street] *required* | Customer profile street |
-| customer[profile][building] *required* | Customer profile building |
-| customer[profile][building_addon]  | Customer profile building addon |
-| customer[profile][postal_code] *required* | Customer profile postal code |
-| customer[profile][language]  | Values: ["nl", "fr", "en"]. Default: nl |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-200 OK
-```
-
-
-```json
-{
-  "id": 105,
-  "email": "nathalie@abernathy.co",
-  "created_at": "2020-04-06T08:43:33.409Z",
-  "updated_at": "2020-04-06T08:43:33.428Z",
-  "profile": {
-    "id": 103,
-    "customer_id": 105,
-    "organisation_id": 18,
-    "title": "mr",
-    "first_name": "Danny",
-    "last_name": "Ocean",
-    "birth_date": "2000-04-06",
-    "phone": "+3256980144",
-    "city": "East Mohammedfort",
-    "street": "8132 Kindra Islands",
-    "building": "14346",
-    "postal_code": "68658-3184",
-    "language": "fr",
-    "created_at": "2020-04-06T08:43:33.411Z",
-    "updated_at": "2020-04-06T08:43:33.411Z"
-  }
-}
-```
-
-
-
-# Customer list
-
-
-
-## Success
-
-Returning status 200 and array of customers
-
-### Request
-
-#### Endpoint
-
-```plaintext
-GET /api/v1/customers?page=1&amp;per=5
-Content-Type: application/json
-Authorization: Bearer 9aa0d3fb5829cf9e4c35224d23d16877
+Authorization: Bearer adb343a0860c10f32ce2581884c8618a
 ```
 
 `GET /api/v1/customers`
@@ -222,7 +291,7 @@ Authorization: Bearer 9aa0d3fb5829cf9e4c35224d23d16877
 
 ```json
 page: 1
-per: 5
+per: 2
 ```
 
 
@@ -244,129 +313,67 @@ Content-Type: application/json; charset=utf-8
 ```json
 {
   "current_page": 1,
-  "limit_value": 5,
+  "limit_value": 2,
   "next_page": 2,
   "prev_page": null,
-  "total_pages": 7,
+  "total_pages": 2,
   "records": [
     {
-      "id": 25,
-      "email": "gale@rodriguez.name",
-      "created_at": "2020-04-06T08:43:32.497Z",
-      "updated_at": "2020-04-06T08:43:32.497Z",
-      "profile": {
-        "id": 23,
-        "customer_id": 25,
-        "organisation_id": 9,
-        "title": "mr",
-        "first_name": "Roman",
-        "last_name": "Ferry",
-        "birth_date": "1968-12-23",
-        "phone": "+3232411132",
-        "city": "Franklyntown",
-        "street": "Johns Route",
-        "building": "3401",
-        "building_addon": "Apt. 921",
-        "postal_code": "88052",
-        "language": "nl",
-        "created_at": "2020-04-06T08:43:32.501Z",
-        "updated_at": "2020-04-06T08:43:32.501Z"
-      }
-    },
-    {
-      "id": 26,
-      "email": "diedre_towne@langcarroll.name",
-      "created_at": "2020-04-06T08:43:32.507Z",
-      "updated_at": "2020-04-06T08:43:32.507Z",
-      "profile": {
-        "id": 24,
-        "customer_id": 26,
-        "organisation_id": 9,
-        "title": "mr",
-        "first_name": "Santos",
-        "last_name": "Bosco",
-        "birth_date": "1971-02-01",
-        "phone": "+3256980144",
-        "city": "West Brian",
-        "street": "Kohler Underpass",
-        "building": "55547",
-        "building_addon": "Apt. 633",
-        "postal_code": "67775",
-        "language": "nl",
-        "created_at": "2020-04-06T08:43:32.511Z",
-        "updated_at": "2020-04-06T08:43:32.511Z"
-      }
-    },
-    {
       "id": 27,
-      "email": "shad_johnston@schroeder.io",
-      "created_at": "2020-04-06T08:43:32.516Z",
-      "updated_at": "2020-04-06T08:43:32.516Z",
-      "profile": {
-        "id": 25,
-        "customer_id": 27,
-        "organisation_id": 9,
-        "title": "mr",
-        "first_name": "Dexter",
-        "last_name": "Smith",
-        "birth_date": "1977-09-21",
-        "phone": "+3256980144",
-        "city": "Rachealfurt",
-        "street": "Wade Street",
-        "building": "46009",
-        "building_addon": "Suite 779",
-        "postal_code": "04975",
-        "language": "nl",
-        "created_at": "2020-04-06T08:43:32.519Z",
-        "updated_at": "2020-04-06T08:43:32.519Z"
-      }
-    },
-    {
-      "id": 28,
-      "email": "laurice_boehm@lockman.co",
-      "created_at": "2020-04-06T08:43:32.524Z",
-      "updated_at": "2020-04-06T08:43:32.524Z",
+      "email": "bennie@gleason.com",
+      "created_at": "2020-04-07T13:51:13.124Z",
+      "updated_at": "2020-04-07T13:51:13.124Z",
+      "organisation": {
+        "id": 28,
+        "name": "West-Turner",
+        "domain": "daughertyledner-schowalterschmeler-20",
+        "created_at": "2020-04-07T13:51:13.042Z"
+      },
       "profile": {
         "id": 26,
-        "customer_id": 28,
-        "organisation_id": 9,
+        "customer_id": 27,
         "title": "mr",
-        "first_name": "Tracy",
-        "last_name": "Becker",
-        "birth_date": "1986-07-23",
-        "phone": "+3232411132",
-        "city": "West Lewis",
-        "street": "Rich Stream",
-        "building": "68499",
-        "building_addon": "Suite 853",
-        "postal_code": "71874",
+        "first_name": "Latanya",
+        "last_name": "Kilback",
+        "birth_date": "1967-03-15",
+        "phone": "+3256980144",
+        "city": "Scottchester",
+        "street": "Pacocha Trafficway",
+        "building": "249",
+        "building_addon": "Apt. 466",
+        "postal_code": "49586",
         "language": "nl",
-        "created_at": "2020-04-06T08:43:32.527Z",
-        "updated_at": "2020-04-06T08:43:32.527Z"
+        "created_at": "2020-04-07T13:51:13.132Z",
+        "updated_at": "2020-04-07T13:51:13.132Z"
       }
     },
     {
-      "id": 29,
-      "email": "marvin.prohaska@wisozkdach.io",
-      "created_at": "2020-04-06T08:43:32.531Z",
-      "updated_at": "2020-04-06T08:43:32.531Z",
+      "id": 23,
+      "email": "bertram@schuppe.com",
+      "created_at": "2020-04-07T13:51:13.049Z",
+      "updated_at": "2020-04-07T13:51:13.049Z",
+      "organisation": {
+        "id": 28,
+        "name": "West-Turner",
+        "domain": "daughertyledner-schowalterschmeler-20",
+        "created_at": "2020-04-07T13:51:13.042Z"
+      },
       "profile": {
-        "id": 27,
-        "customer_id": 29,
-        "organisation_id": 9,
+        "id": 22,
+        "customer_id": 23,
         "title": "mr",
-        "first_name": "Yael",
-        "last_name": "Barton",
-        "birth_date": "1978-02-08",
-        "phone": "+3232411132",
-        "city": "Michalfort",
-        "street": "Krajcik Rapid",
-        "building": "36435",
-        "building_addon": "Suite 906",
-        "postal_code": "91771",
-        "language": "nl",
-        "created_at": "2020-04-06T08:43:32.534Z",
-        "updated_at": "2020-04-06T08:43:32.534Z"
+        "first_name": "Cole",
+        "last_name": "Franecki",
+        "birth_date": "1978-10-06",
+        "phone": "+3225551212",
+        "city": "Lupeland",
+        "street": "Breitenberg Prairie",
+        "building": "1407",
+        "building_addon": "Suite 103",
+        "postal_code": "76169",
+        "language": "fr",
+        "created_at": "2020-04-07T13:51:13.056Z",
+        "updated_at": "2020-04-07T13:51:13.056Z"
       }
     }
   ]
@@ -375,22 +382,54 @@ Content-Type: application/json; charset=utf-8
 
 
 
-# Customer show
+#### Fields
+
+| Name       | Description         |
+|:-----------|:--------------------|
+| current_page | The current page number |
+| limit_value | Limit of records on a page |
+| next_page | The next page number |
+| prev_page | The previous page number |
+| total_pages | Total available pages |
+| records | The list of found records |
+| id | ID of the customer |
+| email | Unique email of the customer |
+| organisation | Attributes of the organisation to which the customer belongs to |
+| organisation[id] | ID of the customer's organisation |
+| organisation[name] | Name of the organisation |
+| organisation[domain] | Domain of the organisation. Usually it's a subdomain under the parent organisation's domain |
+| organisation[created_at] | Date and time when the organisation has been created |
+| profile[id] | ID of the customer's profile |
+| profile[customer_id] | ID of the customer to whom the profile belongs to |
+| profile[title] | Values: ["mr", "mrs"]. Example: "mr". Customer profile title |
+| profile[first_name] | The customer's first name |
+| profile[last_name] | The customer's last name |
+| profile[birth_date] | The customer's birth date |
+| profile[phone] | Example: "+32460123456". The phone number (full format - only country code with digits) |
+| profile[city] | The customer's address - city |
+| profile[street] | The customer's address - street |
+| profile[building] | The customer's address - building |
+| profile[building_addon] | The customer's address - buildin addon |
+| profile[postal_code] | The customer's address - zip code |
+| profile[language] | Values: ["nl", "fr", "en"]. Customer profile language |
+| profile[created_at] | Date and time when the customer profile has been created |
+| profile[updated_at] | Date and time when the customer profile has been updated |
 
 
+## SHOW 200 OK
 
-## Failure
+          Returns the attributes of the customer with provided ID.
+          The customer must belong to the current organisation.
 
-Returning status 404 where the customer is missing
 
 ### Request
 
 #### Endpoint
 
 ```plaintext
-GET /api/v1/customers/116
+GET /api/v1/customers/12
 Content-Type: application/json
-Authorization: Bearer 1c9696c9aaddc76d629e9f070919338d
+Authorization: Bearer e5f910186aab561b6a6bf5db76d9e775
 ```
 
 `GET /api/v1/customers/:id`
@@ -398,15 +437,109 @@ Authorization: Bearer 1c9696c9aaddc76d629e9f070919338d
 #### Parameters
 
 
+
+| Name | Description |
+|:-----|:------------|
+| id *required* | Type: *integer*. ID of a customer |
+
+
+
+### Response
+
+```plaintext
+Content-Type: application/json; charset=utf-8
+200 OK
+```
+
+
 ```json
 {
-}: 
+  "id": 12,
+  "email": "pok@watsica.com",
+  "created_at": "2020-04-07T13:51:12.371Z",
+  "updated_at": "2020-04-07T13:51:12.371Z",
+  "organisation": {
+    "id": 16,
+    "name": "Crona and Sons",
+    "domain": "millsbeer-padberg-12",
+    "created_at": "2020-04-07T13:51:12.364Z"
+  },
+  "profile": {
+    "id": 11,
+    "customer_id": 12,
+    "title": "mr",
+    "first_name": "Taylor",
+    "last_name": "Jerde",
+    "birth_date": "1992-03-18",
+    "phone": "+32460123456",
+    "city": "Lesleymouth",
+    "street": "Feil Walks",
+    "building": "5768",
+    "building_addon": "Suite 409",
+    "postal_code": "01014",
+    "language": "fr",
+    "created_at": "2020-04-07T13:51:12.383Z",
+    "updated_at": "2020-04-07T13:51:12.383Z"
+  }
+}
 ```
+
+
+
+#### Fields
+
+| Name       | Description         |
+|:-----------|:--------------------|
+| id | ID of the customer |
+| email | Unique email of the customer |
+| organisation | Attributes of the organisation to which the customer belongs to |
+| organisation[id] | ID of the customer's organisation |
+| organisation[name] | Name of the organisation |
+| organisation[domain] | Domain of the organisation. Usually it's a subdomain under the parent organisation's domain |
+| organisation[created_at] | Date and time when the organisation has been created |
+| profile[id] | ID of the customer's profile |
+| profile[customer_id] | ID of the customer to whom the profile belongs to |
+| profile[title] | Values: ["mr", "mrs"]. Example: "mr". Customer profile title |
+| profile[first_name] | The customer's first name |
+| profile[last_name] | The customer's last name |
+| profile[birth_date] | The customer's birth date |
+| profile[phone] | Example: "+32460123456". The phone number (full format - only country code with digits) |
+| profile[city] | The customer's address - city |
+| profile[street] | The customer's address - street |
+| profile[building] | The customer's address - building |
+| profile[building_addon] | The customer's address - buildin addon |
+| profile[postal_code] | The customer's address - zip code |
+| profile[language] | Values: ["nl", "fr", "en"]. Customer profile language |
+| profile[created_at] | Date and time when the customer profile has been created |
+| profile[updated_at] | Date and time when the customer profile has been updated |
+
+
+## SHOW 404 Not Found
+
+          A customer with specified ID haven't been found.
+          The customer must belong to the current organisation.
+          Current organisation defined based on provided API token.
+
+
+### Request
+
+#### Endpoint
+
+```plaintext
+GET /api/v1/customers/18
+Content-Type: application/json
+Authorization: Bearer dbc28b264edc367051d2a1a6ed8538ba
+```
+
+`GET /api/v1/customers/:id`
+
+#### Parameters
+
 
 
 | Name | Description |
 |:-----|:------------|
-| id *required* |  id |
+| id *required* | Type: *integer*. ID of a customer |
 
 
 
@@ -424,161 +557,12 @@ Content-Type: application/json; charset=utf-8
 
 
 
-## Success
-
-Returning status 200 and Customer hash
-
-### Request
-
-#### Endpoint
-
-```plaintext
-GET /api/v1/customers/110
-Content-Type: application/json
-Authorization: Bearer 0d1a6bfd67a8247dc1d4a061fad2da9b
-```
-
-`GET /api/v1/customers/:id`
-
-#### Parameters
-
-
-```json
-{
-}: 
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| id *required* |  id |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-200 OK
-```
-
-
-```json
-{
-  "id": 110,
-  "email": "jewell.feeney@tillman.io",
-  "created_at": "2020-04-06T08:43:33.705Z",
-  "updated_at": "2020-04-06T08:43:33.705Z",
-  "profile": {
-    "id": 108,
-    "customer_id": 110,
-    "organisation_id": 27,
-    "title": "mr",
-    "first_name": "Jeneva",
-    "last_name": "Crist",
-    "birth_date": "1967-12-11",
-    "phone": "+3256980144",
-    "city": "West Laurinda",
-    "street": "Faustino Parkway",
-    "building": "6781",
-    "building_addon": "Suite 730",
-    "postal_code": "55302",
-    "language": "nl",
-    "created_at": "2020-04-06T08:43:33.714Z",
-    "updated_at": "2020-04-06T08:43:33.714Z"
-  }
-}
-```
-
-
-
 # Customers / Eans
 
 All requests namespaced under /api/v1
 
 ## CREATE /eans -&gt; failure
 
-when another customer already has EAN with same number
-
-### Request
-
-#### Endpoint
-
-```plaintext
-POST /api/v1/customers/2/eans
-Content-Type: application/json
-Authorization: Bearer d9f7b2f9dda0fccbfcb20dcd576e719b
-```
-
-`POST /api/v1/customers/:customer_id/eans`
-
-#### Parameters
-
-
-```json
-{
-  "ean": {
-    "product": "electricity",
-    "number": "542170967180397340",
-    "reason": "normal",
-    "supplier_id": 2,
-    "street": "street name",
-    "building": "15",
-    "building_addon": "A",
-    "postal_code": "2443",
-    "city": "Kiev",
-    "consumptions": [
-      {
-        "name": "mono",
-        "volume": "22.25",
-        "price": "0.15"
-      }
-    ],
-    "fixed_fee": "1.00",
-    "solar_panels": "true",
-    "recording_period": "february",
-    "contract_end_date": "2020-10-06",
-    "respect_contract_end_date": true,
-    "tariff_group": "mono",
-    "gsc": "0.0214",
-    "wkk": "0.00341",
-    "inverter_max_power": "315"
-  }
-}
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| ean *required* |  ean |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-422 Unprocessable Entity
-```
-
-
-```json
-{
-  "errors": [
-    {
-      "error": "has_already_been_taken",
-      "message": "has already been taken",
-      "path": "ean.number",
-      "type": "params"
-    }
-  ]
-}
-```
-
-
-
-## CREATE /eans -&gt; failure
-
 When a customer has already an EAN with the same number
 
 ### Request
@@ -586,96 +570,9 @@ When a customer has already an EAN with the same number
 #### Endpoint
 
 ```plaintext
-POST /api/v1/customers/4/eans
+POST /api/v1/customers/2/eans/bulk
 Content-Type: application/json
-Authorization: Bearer aba214cc23035e716072ab7a4c340085
-```
-
-`POST /api/v1/customers/:customer_id/eans`
-
-#### Parameters
-
-
-```json
-{
-  "ean": {
-    "product": "electricity",
-    "number": "542170967180397340",
-    "reason": "normal",
-    "supplier_id": 4,
-    "street": "street name",
-    "building": "15",
-    "building_addon": "A",
-    "postal_code": "2443",
-    "city": "Kiev",
-    "consumptions": [
-      {
-        "name": "mono",
-        "volume": "22.25",
-        "price": "0.15"
-      }
-    ],
-    "fixed_fee": "1.00",
-    "solar_panels": "true",
-    "recording_period": "february",
-    "contract_end_date": "2020-10-06",
-    "respect_contract_end_date": true,
-    "tariff_group": "mono",
-    "gsc": "0.0214",
-    "wkk": "0.00341",
-    "inverter_max_power": "315"
-  }
-}
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| ean *required* |  ean |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-422 Unprocessable Entity
-```
-
-
-```json
-{
-  "errors": [
-    {
-      "error": "has_already_been_added_to_customer",
-      "message": "has already been added to customer",
-      "path": "ean.number",
-      "type": "params"
-    },
-    {
-      "error": "has_already_been_taken",
-      "message": "has already been taken",
-      "path": "ean.number",
-      "type": "params"
-    }
-  ]
-}
-```
-
-
-
-## CREATE /eans -&gt; failure
-
-when another customer already has EAN with same number
-
-### Request
-
-#### Endpoint
-
-```plaintext
-POST /api/v1/customers/117/eans/bulk
-Content-Type: application/json
-Authorization: Bearer d80eb98d5133143a9bf1280131e2d35e
+Authorization: Bearer 1c0d5ecdf9669ff21a38aca7c2534900
 ```
 
 `POST /api/v1/customers/:customer_id/eans/bulk`
@@ -691,7 +588,7 @@ Authorization: Bearer d80eb98d5133143a9bf1280131e2d35e
         "product": "electricity",
         "number": "542170967180397340",
         "reason": "normal",
-        "supplier_id": 8,
+        "supplier_id": 2,
         "street": "street name",
         "building": "15",
         "building_addon": "A",
@@ -707,93 +604,7 @@ Authorization: Bearer d80eb98d5133143a9bf1280131e2d35e
         "fixed_fee": "1.00",
         "solar_panels": "true",
         "recording_period": "february",
-        "contract_end_date": "2020-10-06",
-        "respect_contract_end_date": true,
-        "tariff_group": "mono",
-        "gsc": "0.0214",
-        "wkk": "0.00341",
-        "inverter_max_power": "315"
-      }
-    }
-  ]
-}
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| eans *required* |  eans |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-422 Unprocessable Entity
-```
-
-
-```json
-{
-  "errors": [
-    {
-      "error": "has_already_been_taken",
-      "message": "has already been taken",
-      "path": "ean.number",
-      "type": "params",
-      "index": 0
-    }
-  ]
-}
-```
-
-
-
-## CREATE /eans -&gt; failure
-
-When a customer has already an EAN with the same number
-
-### Request
-
-#### Endpoint
-
-```plaintext
-POST /api/v1/customers/119/eans/bulk
-Content-Type: application/json
-Authorization: Bearer 05a9498bd4a9833f8a00a78039304c84
-```
-
-`POST /api/v1/customers/:customer_id/eans/bulk`
-
-#### Parameters
-
-
-```json
-{
-  "eans": [
-    {
-      "ean": {
-        "product": "electricity",
-        "number": "542170967180397340",
-        "reason": "normal",
-        "supplier_id": 10,
-        "street": "street name",
-        "building": "15",
-        "building_addon": "A",
-        "postal_code": "2443",
-        "city": "Kiev",
-        "consumptions": [
-          {
-            "name": "mono",
-            "volume": "22.25",
-            "price": "0.15"
-          }
-        ],
-        "fixed_fee": "1.00",
-        "solar_panels": "true",
-        "recording_period": "february",
-        "contract_end_date": "2020-10-06",
+        "contract_end_date": "2020-10-07",
         "respect_contract_end_date": true,
         "tariff_group": "mono",
         "gsc": "0.0214",
@@ -843,125 +654,18 @@ Content-Type: application/json; charset=utf-8
 
 
 
-## CREATE /eans -&gt; success
+## CREATE /eans -&gt; failure
 
-Create EAN batch
-
-### Request
-
-#### Endpoint
-
-```plaintext
-POST /api/v1/customers/1/eans
-Content-Type: application/json
-Authorization: Bearer 5a6628f340ed98796f38454f873c487a
-```
-
-`POST /api/v1/customers/:customer_id/eans`
-
-#### Parameters
-
-
-```json
-{
-  "ean": {
-    "product": "electricity",
-    "number": "542170967180397340",
-    "reason": "normal",
-    "supplier_id": 1,
-    "street": "street name",
-    "building": "15",
-    "building_addon": "A",
-    "postal_code": "2443",
-    "city": "Kiev",
-    "consumptions": [
-      {
-        "name": "mono",
-        "volume": "22.25",
-        "price": "0.15"
-      }
-    ],
-    "fixed_fee": "1.00",
-    "solar_panels": "true",
-    "recording_period": "february",
-    "contract_end_date": "2020-10-06",
-    "respect_contract_end_date": true,
-    "tariff_group": "mono",
-    "gsc": "0.0214",
-    "wkk": "0.00341",
-    "inverter_max_power": "315"
-  }
-}
-```
-
-
-| Name | Description |
-|:-----|:------------|
-| ean *required* |  ean |
-
-
-
-### Response
-
-```plaintext
-Content-Type: application/json; charset=utf-8
-201 Created
-```
-
-
-```json
-{
-  "id": 1,
-  "customer_id": 1,
-  "supplier_id": 1,
-  "number": "542170967180397340",
-  "product": "electricity",
-  "building": "15",
-  "building_addon": "A",
-  "city": "Kiev",
-  "consumptions": [
-    {
-      "name": "mono",
-      "volume": "22.25",
-      "price": "0.15"
-    }
-  ],
-  "fixed_fee": "1.0",
-  "postal_code": "2443",
-  "reason": "normal",
-  "state": "ready",
-  "street": "street name",
-  "tariff_group": "mono",
-  "recording_period": "february",
-  "respect_contract_end_date": true,
-  "solar_panels": true,
-  "inverter_max_power": 315,
-  "wkk": "0.00341",
-  "gsc": "0.0214",
-  "created_at": "2020-04-06T08:43:31.928Z",
-  "confirmed_at": "2020-04-06T08:43:31.918Z",
-  "contract_end_date": "2020-10-06",
-  "supplier": {
-    "id": 1,
-    "name": "Beer LLC 1"
-  }
-}
-```
-
-
-
-## CREATE /eans -&gt; success
-
-Create EAN batch
+when another customer already has EAN with same number
 
 ### Request
 
 #### Endpoint
 
 ```plaintext
-POST /api/v1/customers/116/eans/bulk
+POST /api/v1/customers/3/eans/bulk
 Content-Type: application/json
-Authorization: Bearer a9f8aa5b50593a50d2fc06cfdc4aa1c6
+Authorization: Bearer e46beb077056b4700e6c362b5db49d96
 ```
 
 `POST /api/v1/customers/:customer_id/eans/bulk`
@@ -977,7 +681,7 @@ Authorization: Bearer a9f8aa5b50593a50d2fc06cfdc4aa1c6
         "product": "electricity",
         "number": "542170967180397340",
         "reason": "normal",
-        "supplier_id": 7,
+        "supplier_id": 4,
         "street": "street name",
         "building": "15",
         "building_addon": "A",
@@ -993,7 +697,7 @@ Authorization: Bearer a9f8aa5b50593a50d2fc06cfdc4aa1c6
         "fixed_fee": "1.00",
         "solar_panels": "true",
         "recording_period": "february",
-        "contract_end_date": "2020-10-06",
+        "contract_end_date": "2020-10-07",
         "respect_contract_end_date": true,
         "tariff_group": "mono",
         "gsc": "0.0214",
@@ -1016,20 +720,56 @@ Authorization: Bearer a9f8aa5b50593a50d2fc06cfdc4aa1c6
 
 ```plaintext
 Content-Type: application/json; charset=utf-8
-201 Created
+422 Unprocessable Entity
 ```
 
 
 ```json
-[
-  {
-    "id": 7,
-    "customer_id": 116,
+{
+  "errors": [
+    {
+      "error": "has_already_been_taken",
+      "message": "has already been taken",
+      "path": "ean.number",
+      "type": "params",
+      "index": 0
+    }
+  ]
+}
+```
+
+
+
+## CREATE /eans -&gt; failure
+
+when another customer already has EAN with same number
+
+### Request
+
+#### Endpoint
+
+```plaintext
+POST /api/v1/customers/35/eans
+Content-Type: application/json
+Authorization: Bearer be494c40dca7cc198e6e0add1e64441a
+```
+
+`POST /api/v1/customers/:customer_id/eans`
+
+#### Parameters
+
+
+```json
+{
+  "ean": {
+    "product": "electricity",
+    "number": "542170967180397340",
+    "reason": "normal",
     "supplier_id": 7,
-    "number": "542170967180397340",
-    "product": "electricity",
+    "street": "street name",
     "building": "15",
     "building_addon": "A",
+    "postal_code": "2443",
     "city": "Kiev",
     "consumptions": [
       {
@@ -1038,129 +778,134 @@ Content-Type: application/json; charset=utf-8
         "price": "0.15"
       }
     ],
-    "fixed_fee": "1.0",
-    "postal_code": "2443",
-    "reason": "normal",
-    "state": "ready",
-    "street": "street name",
-    "tariff_group": "mono",
+    "fixed_fee": "1.00",
+    "solar_panels": "true",
     "recording_period": "february",
+    "contract_end_date": "2020-10-07",
     "respect_contract_end_date": true,
-    "solar_panels": true,
-    "inverter_max_power": 315,
-    "wkk": "0.00341",
+    "tariff_group": "mono",
     "gsc": "0.0214",
-    "created_at": "2020-04-06T08:43:33.989Z",
-    "confirmed_at": "2020-04-06T08:43:33.986Z",
-    "contract_end_date": "2020-10-06",
-    "supplier": {
-      "id": 7,
-      "name": "Ernser-Stark 7"
-    }
+    "wkk": "0.00341",
+    "inverter_max_power": "315"
   }
-]
+}
 ```
 
 
+| Name | Description |
+|:-----|:------------|
+| customer_id *required* | ID of the customer |
+| ean *required* |  ean |
 
-# Eans list
-
-All requests namespaced under /api/v1
-
-## Success
-
-Returns status 200 and array of the customer's eans
-
-### Request
-
-#### Endpoint
-
-```plaintext
-GET /api/v1/customers/5/eans
-Content-Type: application/json
-Authorization: Bearer 9a9b82be7358a72368090497d7704081
-```
-
-`GET /api/v1/customers/:customer_id/eans`
-
-#### Parameters
-
-
-```json
-{
-}: 
-```
-
-None known.
 
 
 ### Response
 
 ```plaintext
 Content-Type: application/json; charset=utf-8
-200 OK
+422 Unprocessable Entity
 ```
 
 
 ```json
-[
-  {
-    "id": 4,
-    "customer_id": 5,
-    "supplier_id": 6,
-    "number": "545163640862149376",
-    "product": "electricity",
-    "building": "666",
-    "building_addon": "Suite 966",
-    "city": "South Nelleview",
-    "fixed_fee": "31.0",
-    "postal_code": "69057",
-    "reason": "new",
-    "state": "ready",
-    "street": "Reichel Grove",
-    "tariff_group": "dualExclusive",
-    "recording_period": "automatic",
-    "respect_contract_end_date": false,
-    "solar_panels": false,
-    "inverter_max_power": 689,
-    "wkk": "0.00425",
-    "gsc": "0.0215",
-    "created_at": "2020-04-06T08:43:32.205Z",
-    "confirmed_at": "2020-04-06T08:43:32.204Z",
-    "supplier": {
-      "id": 6,
-      "name": "Kunze-Bayer 6"
+{
+  "errors": [
+    {
+      "error": "has_already_been_taken",
+      "message": "has already been taken",
+      "path": "ean.number",
+      "type": "params"
     }
-  },
-  {
-    "id": 5,
-    "customer_id": 5,
-    "supplier_id": 6,
-    "number": "544001561091240792",
+  ]
+}
+```
+
+
+
+## CREATE /eans -&gt; failure
+
+When a customer has already an EAN with the same number
+
+### Request
+
+#### Endpoint
+
+```plaintext
+POST /api/v1/customers/38/eans
+Content-Type: application/json
+Authorization: Bearer 0a68a845425d710a8611ae2203c32a73
+```
+
+`POST /api/v1/customers/:customer_id/eans`
+
+#### Parameters
+
+
+```json
+{
+  "ean": {
     "product": "electricity",
-    "building": "78915",
-    "building_addon": "Suite 516",
-    "city": "Jacobiborough",
-    "fixed_fee": "50.0",
-    "postal_code": "84288-7210",
+    "number": "542170967180397340",
     "reason": "normal",
-    "state": "ready",
-    "street": "Paucek Mall",
-    "tariff_group": "dualExclusive",
-    "recording_period": "january",
-    "respect_contract_end_date": false,
-    "solar_panels": true,
-    "inverter_max_power": 1431,
-    "wkk": "0.00425",
-    "gsc": "0.0215",
-    "created_at": "2020-04-06T08:43:32.210Z",
-    "confirmed_at": "2020-04-06T08:43:32.210Z",
-    "supplier": {
-      "id": 6,
-      "name": "Kunze-Bayer 6"
-    }
+    "supplier_id": 10,
+    "street": "street name",
+    "building": "15",
+    "building_addon": "A",
+    "postal_code": "2443",
+    "city": "Kiev",
+    "consumptions": [
+      {
+        "name": "mono",
+        "volume": "22.25",
+        "price": "0.15"
+      }
+    ],
+    "fixed_fee": "1.00",
+    "solar_panels": "true",
+    "recording_period": "february",
+    "contract_end_date": "2020-10-07",
+    "respect_contract_end_date": true,
+    "tariff_group": "mono",
+    "gsc": "0.0214",
+    "wkk": "0.00341",
+    "inverter_max_power": "315"
   }
-]
+}
+```
+
+
+| Name | Description |
+|:-----|:------------|
+| customer_id *required* | ID of the customer |
+| ean *required* |  ean |
+
+
+
+### Response
+
+```plaintext
+Content-Type: application/json; charset=utf-8
+422 Unprocessable Entity
+```
+
+
+```json
+{
+  "errors": [
+    {
+      "error": "has_already_been_added_to_customer",
+      "message": "has already been added to customer",
+      "path": "ean.number",
+      "type": "params"
+    },
+    {
+      "error": "has_already_been_taken",
+      "message": "has already been taken",
+      "path": "ean.number",
+      "type": "params"
+    }
+  ]
+}
 ```
 
 
@@ -1187,11 +932,6 @@ Authorization: wrong_token
 
 #### Parameters
 
-
-```json
-{
-}: 
-```
 
 None known.
 
@@ -1233,18 +973,13 @@ Returning status 200
 ```plaintext
 GET /api/v1/me
 Content-Type: application/json
-Authorization: Bearer 3cab51c68bcddf6f2a18d9df159c38c1
+Authorization: Bearer cb3f3c4acb80173a4211e1aed3afe12b
 ```
 
 `GET /api/v1/me`
 
 #### Parameters
 
-
-```json
-{
-}: 
-```
 
 None known.
 
@@ -1259,10 +994,10 @@ Content-Type: application/json; charset=utf-8
 
 ```json
 {
-  "id": 7,
-  "name": "Pouros Group",
-  "domain": "quitzonrau-kiehn-7",
-  "created_at": "2020-04-06T08:43:32.293Z"
+  "id": 1,
+  "name": "Runolfsdottir-Cassin",
+  "domain": "leuschke-okonfadel-1",
+  "created_at": "2020-04-07T13:51:10.654Z"
 }
 ```
 
@@ -1289,11 +1024,6 @@ Content-Type: application/json
 
 #### Parameters
 
-
-```json
-{
-}: 
-```
 
 None known.
 
